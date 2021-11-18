@@ -1,3 +1,5 @@
+Code Updated to work with Matlab 2021b
+
 This MATLAB code accepts a WAV file, seperates it into small time intervals known as grains, applies a Hanning window, and generates two output files and sets of output waveforms. 
 
 The first set of outputs rebuilds the original audio file from the grains of seperated audio, and is intended to be sonically and visually identical to the input. 

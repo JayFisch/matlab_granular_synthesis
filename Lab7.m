@@ -1,7 +1,7 @@
 % MMI 502 Lab 7 - Seth Hochberg
 
 %% Problem 1 - Import, make granular, recombine, export
-[signal fs bitdepth] = wavread('trumpet.wav');
+[signal, fs] = audioread('trumpet.wav');
 framesize = .05 * fs;
 hopsize = round(.5 * framesize); 
 numframes = floor((length(signal) - framesize + hopsize) / hopsize); 
@@ -31,7 +31,7 @@ plot(newsignal);
 title('Recomposed');
 
 soundsc(newsignal, fs);
-wavwrite(newsignal, fs, 'trumpted_recombined.wav');
+audiowrite( 'trumpted_recombined.wav',newsignal, fs);
 
 %% Reconstructing the signal in the reverse order
 newsignal = zeros(1, length(signal));
@@ -49,7 +49,7 @@ plot(newsignal);
 title('Reversed');
 
 soundsc(newsignal, fs);
-wavwrite(newsignal, fs, 'trumpted_recombined_reversed.wav');
+audiowrite('trumpted_recombined_reversed.wav',newsignal, fs);
 
 %% Reconstructing the signal in random grain order
 newsignal = zeros(1, length(signal));
@@ -70,4 +70,4 @@ plot(newsignal);
 title('Random');
 
 soundsc(newsignal, fs);
-wavwrite(newsignal, fs, 'trumpted_recombined_randomized.wav');
+audiowrite('trumpted_recombined_randomized.wav',newsignal, fs );
